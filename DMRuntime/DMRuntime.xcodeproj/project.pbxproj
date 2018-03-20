@@ -13,6 +13,7 @@
 		6BE09DED2060B0750051D07F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6BE09DEC2060B0750051D07F /* Assets.xcassets */; };
 		6BE09DF02060B0750051D07F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6BE09DEE2060B0750051D07F /* LaunchScreen.storyboard */; };
 		6BE09DF32060B0750051D07F /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 6BE09DF22060B0750051D07F /* main.m */; };
+		6BE09DFB2060B1050051D07F /* Person.m in Sources */ = {isa = PBXBuildFile; fileRef = 6BE09DFA2060B1050051D07F /* Person.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +27,8 @@
 		6BE09DEF2060B0750051D07F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		6BE09DF12060B0750051D07F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		6BE09DF22060B0750051D07F /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		6BE09DF92060B1050051D07F /* Person.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Person.h; sourceTree = "<group>"; };
+		6BE09DFA2060B1050051D07F /* Person.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Person.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -62,6 +65,8 @@
 				6BE09DE42060B0750051D07F /* AppDelegate.m */,
 				6BE09DE62060B0750051D07F /* ViewController.h */,
 				6BE09DE72060B0750051D07F /* ViewController.m */,
+				6BE09DF92060B1050051D07F /* Person.h */,
+				6BE09DFA2060B1050051D07F /* Person.m */,
 				6BE09DE92060B0750051D07F /* Main.storyboard */,
 				6BE09DEC2060B0750051D07F /* Assets.xcassets */,
 				6BE09DEE2060B0750051D07F /* LaunchScreen.storyboard */,
@@ -144,6 +149,7 @@
 			files = (
 				6BE09DE82060B0750051D07F /* ViewController.m in Sources */,
 				6BE09DF32060B0750051D07F /* main.m in Sources */,
+				6BE09DFB2060B1050051D07F /* Person.m in Sources */,
 				6BE09DE52060B0750051D07F /* AppDelegate.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
