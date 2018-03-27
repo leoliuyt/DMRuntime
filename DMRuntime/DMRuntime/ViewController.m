@@ -8,12 +8,15 @@
 
 #import "ViewController.h"
 #import "Person.h"
+#import "Father.h"
 #import <objc/runtime.h>
 
 @interface ViewController ()
 @property (weak, nonatomic) IBOutlet UITextView *textView;
 
 @property (nonatomic, strong) Person *ps;
+
+@property (nonatomic, strong) Father *father;
 
 @end
 
@@ -25,6 +28,9 @@
     self.ps.name = @"Leoliu";
     self.ps.age = @(30);
     self.ps.sex = 1;
+    
+    self.father = [Father new];
+    self.father.sons = @[@"son1",@"son2"];
 }
 
 
@@ -50,7 +56,8 @@
 //获取属性列表
 - (IBAction)propertyListAction:(id)sender {
     unsigned int count;
-    objc_property_t *propertyList = class_copyPropertyList([self.ps class], &count);
+    //只能获取到当前类的属性列表 获取不到父类的
+    objc_property_t *propertyList = class_copyPropertyList([self.father class], &count);
     NSMutableString *str = [NSMutableString stringWithString:@""];
     for (unsigned int i = 0; i < count; i++) {
         objc_property_t property = propertyList[i];
@@ -61,6 +68,33 @@
     self.textView.text = [str copy];
 }
 
+//获取属性的attribute
+/**
+ T@"NSArray",C,N,V_sons
+ 
+ R The property is read-only (readonly).
+ C The property is a copy of the value last assigned (copy).
+ & The property is a reference to the value last assigned (retain).
+ N The property is non-atomic (nonatomic).
+ G<name> The property defines a custom getter selector name. The name follows the G (for example, GcustomGetter,).
+ S<name> The property defines a custom setter selector name. The name follows the S (for example, ScustomSetter:,).
+ D The property is dynamic (@dynamic).
+ W The property is a weak reference (__weak).
+ P The property is eligible for garbage collection.
+ t<encoding> Specifies the type using old-style encoding.
+ */
+- (IBAction)propertyAttributeListAction:(id)sender{
+    unsigned int count;
+    objc_property_t *propertyList = class_copyPropertyList(self.father.class, &count);
+    NSMutableString *str = [NSMutableString stringWithString:@""];
+    for (unsigned int i = 0; i < count; i++) {
+        objc_property_t property = propertyList[i];
+         const char *propertyAttributes = property_getAttributes(property);
+        NSString *propertyAttributesStr = [NSString stringWithUTF8String:propertyAttributes];
+        [str appendFormat:@"%@\n",propertyAttributesStr];
+    }
+    self.textView.text = [str copy];
+}
 //获取实例方法列表
 - (IBAction)methodListAction:(id)sender {
     unsigned int count;
