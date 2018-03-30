@@ -31,6 +31,27 @@
     
     self.father = [Father new];
     self.father.sons = @[@"son1",@"son2"];
+    
+    self.title = self.list[self.index];
+    switch (self.index) {
+        case 0:
+            [self ivarListAction];
+            break;
+        case 1:
+            [self propertyListAction];
+            break;
+        case 2:
+            [self propertyAttributeListAction];
+            break;
+        case 3:
+            [self methodListAction];
+            break;
+        case 4:
+            [self classMethodListAction];
+            break;
+        default:
+            break;
+    }
 }
 
 
@@ -40,7 +61,7 @@
 }
 
 //获取成员变量列表
-- (IBAction)ivarListAction:(id)sender {
+- (void)ivarListAction {
     unsigned int count;
     Ivar *list = class_copyIvarList([self.ps class], &count);
     NSMutableString *str = [NSMutableString stringWithString:@""];
@@ -54,7 +75,7 @@
 }
 
 //获取属性列表
-- (IBAction)propertyListAction:(id)sender {
+- (void)propertyListAction {
     unsigned int count;
     //只能获取到当前类的属性列表 获取不到父类的
     objc_property_t *propertyList = class_copyPropertyList([self.father class], &count);
@@ -83,7 +104,7 @@
  P The property is eligible for garbage collection.
  t<encoding> Specifies the type using old-style encoding.
  */
-- (IBAction)propertyAttributeListAction:(id)sender{
+- (void)propertyAttributeListAction{
     unsigned int count;
     objc_property_t *propertyList = class_copyPropertyList(self.father.class, &count);
     NSMutableString *str = [NSMutableString stringWithString:@""];
@@ -96,7 +117,7 @@
     self.textView.text = [str copy];
 }
 //获取实例方法列表
-- (IBAction)methodListAction:(id)sender {
+- (void)methodListAction {
     unsigned int count;
     Method *mothodList = class_copyMethodList([self.ps class], &count);
     NSMutableString *str = [NSMutableString stringWithString:@""];
@@ -110,7 +131,7 @@
 
 
 // 获取类方法列表
-- (IBAction)classMethodListAction:(id)sender {
+- (void)classMethodListAction {
     NSString *clsStr = NSStringFromClass(self.ps.class);
     Class metaClass = objc_getMetaClass(clsStr.UTF8String);
 //    Class metaClass = object_getClass([self.ps class]);
@@ -127,4 +148,5 @@
         self.textView.text = [str copy];
     }
 }
+
 @end

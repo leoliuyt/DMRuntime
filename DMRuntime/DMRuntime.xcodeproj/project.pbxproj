@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6B1E49AE206E22CC001DD5E8 /* DMTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6B1E49AD206E22CC001DD5E8 /* DMTableViewController.m */; };
 		6BA602E42069D9E200DEA683 /* Father.m in Sources */ = {isa = PBXBuildFile; fileRef = 6BA602E32069D9E200DEA683 /* Father.m */; };
 		6BE09DE52060B0750051D07F /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 6BE09DE42060B0750051D07F /* AppDelegate.m */; };
 		6BE09DE82060B0750051D07F /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6BE09DE72060B0750051D07F /* ViewController.m */; };
@@ -18,6 +19,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		6B1E49AC206E22CC001DD5E8 /* DMTableViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DMTableViewController.h; sourceTree = "<group>"; };
+		6B1E49AD206E22CC001DD5E8 /* DMTableViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DMTableViewController.m; sourceTree = "<group>"; };
 		6BA602E22069D9E200DEA683 /* Father.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Father.h; sourceTree = "<group>"; };
 		6BA602E32069D9E200DEA683 /* Father.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Father.m; sourceTree = "<group>"; };
 		6BE09DE02060B0750051D07F /* DMRuntime.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DMRuntime.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -68,6 +71,8 @@
 				6BE09DE42060B0750051D07F /* AppDelegate.m */,
 				6BE09DE62060B0750051D07F /* ViewController.h */,
 				6BE09DE72060B0750051D07F /* ViewController.m */,
+				6B1E49AC206E22CC001DD5E8 /* DMTableViewController.h */,
+				6B1E49AD206E22CC001DD5E8 /* DMTableViewController.m */,
 				6BA602E22069D9E200DEA683 /* Father.h */,
 				6BA602E32069D9E200DEA683 /* Father.m */,
 				6BE09DF92060B1050051D07F /* Person.h */,
@@ -154,6 +159,7 @@
 			files = (
 				6BE09DE82060B0750051D07F /* ViewController.m in Sources */,
 				6BE09DF32060B0750051D07F /* main.m in Sources */,
+				6B1E49AE206E22CC001DD5E8 /* DMTableViewController.m in Sources */,
 				6BE09DFB2060B1050051D07F /* Person.m in Sources */,
 				6BE09DE52060B0750051D07F /* AppDelegate.m in Sources */,
 				6BA602E42069D9E200DEA683 /* Father.m in Sources */,
