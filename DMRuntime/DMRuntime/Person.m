@@ -26,6 +26,15 @@
     return self;
 }
 
+- (id)copyWithZone:(nullable NSZone *)zone;
+{
+    Person *p = [Person allocWithZone:zone];
+    p.name = self.name;
+    p.age = self.age;
+    p.sex = self.sex;
+    return p;
+}
+
 - (void)testInstance1
 {
     NSLog(@"%s",__func__);
@@ -42,5 +51,10 @@
 + (void)testClass2
 {
    NSLog(@"%s",__func__);
+}
+
+- (void)dealloc
+{
+    NSLog(@"%@",self);
 }
 @end

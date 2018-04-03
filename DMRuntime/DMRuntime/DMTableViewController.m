@@ -10,7 +10,7 @@
 #import "ViewController.h"
 @interface DMTableViewController ()
 
-@property (nonatomic, strong) NSArray<NSString *> *list;
+@property (nonatomic, strong) NSArray<NSDictionary *> *list;
 
 @end
 
@@ -20,14 +20,22 @@
     [super viewDidLoad];
 }
 
-- (NSArray <NSString *>*)list
+- (NSArray <NSDictionary *>*)list
 {
     return @[
-             @"ivarlist",
-             @"propertylist",
-             @"propertyAttributes",
-             @"methodlist",
-             @"classMethodlist"
+             @{
+                 @"title":@"基本方法调用",
+                 @"data":@[@"ivarlist",
+                 @"propertylist",
+                 @"propertyAttributes",
+                 @"methodlist",
+                 @"classMethodlist",
+                 @"获取所有类方法(包括父类的)"]
+                 },
+             @{
+                 @"title":@"关联对象",
+                 @"data":@[@"关联对象"]
+                 }
              ];
 }
 
@@ -39,17 +47,28 @@
 #pragma mark - Table view data source
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-    return 1;
+    return self.list.count;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return self.list.count;
+    NSDictionary *dic = self.list[section];
+    NSArray *arr = dic[@"data"];
+    return arr.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell" forIndexPath:indexPath];
-    cell.textLabel.text = self.list[indexPath.row];
+    NSDictionary *dic = self.list[indexPath.section];
+    NSArray *arr = dic[@"data"];
+    cell.textLabel.text = arr[indexPath.row];
     return cell;
+}
+
+- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
+{
+    NSDictionary *dic = self.list[section];
+    NSString *title = dic[@"title"];
+    return title;
 }
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(UITableViewCell *)sender
@@ -57,7 +76,7 @@
     if([segue.identifier isEqualToString:@"ShowVC"]){
         ViewController *desVC = (ViewController *)segue.destinationViewController;
         desVC.list = self.list;
-        desVC.index = [self.tableView indexPathForCell:sender].row;
+        desVC.indexPath = [self.tableView indexPathForCell:sender];
     }
 }
 

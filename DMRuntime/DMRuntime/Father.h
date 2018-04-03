@@ -14,5 +14,6 @@
 @property (nonatomic, strong) NSMutableArray *collections;
 
 - (NSString *)getSex;
-
++ (void)testClassFather;
+- (void)selectorname;
 @end

@@ -11,6 +11,17 @@
 @implementation Father
 - (NSString *)getSex
 {
-    return @"男";
+    return @"12";
+}
+
++ (void)testClassFather
+{
+    
+}
+
+- (void)selectorname{
+    NSLog(@"llll");
+    SEL sel = @selector(selectorname);
+    NSLog(@"Father = %p",sel);
 }
 @end

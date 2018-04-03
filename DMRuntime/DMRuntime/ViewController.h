@@ -10,8 +10,8 @@
 
 @interface ViewController : UIViewController
 
-@property (nonatomic, assign) NSInteger index;
-@property (nonatomic, copy) NSArray<NSString *> *list;
+@property (nonatomic, assign) NSIndexPath *indexPath;
+@property (nonatomic, copy) NSArray<NSDictionary *> *list;
 
 @end
 
