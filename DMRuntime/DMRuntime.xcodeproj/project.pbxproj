@@ -18,6 +18,9 @@
 		6BE09DF02060B0750051D07F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6BE09DEE2060B0750051D07F /* LaunchScreen.storyboard */; };
 		6BE09DF32060B0750051D07F /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 6BE09DF22060B0750051D07F /* main.m */; };
 		6BE09DFB2060B1050051D07F /* Person.m in Sources */ = {isa = PBXBuildFile; fileRef = 6BE09DFA2060B1050051D07F /* Person.m */; };
+		9E62595F20B12D3C00C76C18 /* MyClass.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E62595E20B12D3C00C76C18 /* MyClass.m */; };
+		9E62596220B12D5700C76C18 /* MyClass+Test1.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E62596120B12D5700C76C18 /* MyClass+Test1.m */; };
+		9E62596520B12D5E00C76C18 /* MyClass+Test2.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E62596420B12D5E00C76C18 /* MyClass+Test2.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -41,6 +44,12 @@
 		6BE09DF22060B0750051D07F /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		6BE09DF92060B1050051D07F /* Person.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Person.h; sourceTree = "<group>"; };
 		6BE09DFA2060B1050051D07F /* Person.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Person.m; sourceTree = "<group>"; };
+		9E62595D20B12D3C00C76C18 /* MyClass.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MyClass.h; sourceTree = "<group>"; };
+		9E62595E20B12D3C00C76C18 /* MyClass.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MyClass.m; sourceTree = "<group>"; };
+		9E62596020B12D5700C76C18 /* MyClass+Test1.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "MyClass+Test1.h"; sourceTree = "<group>"; };
+		9E62596120B12D5700C76C18 /* MyClass+Test1.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "MyClass+Test1.m"; sourceTree = "<group>"; };
+		9E62596320B12D5E00C76C18 /* MyClass+Test2.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "MyClass+Test2.h"; sourceTree = "<group>"; };
+		9E62596420B12D5E00C76C18 /* MyClass+Test2.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "MyClass+Test2.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -73,6 +82,7 @@
 		6BE09DE22060B0750051D07F /* DMRuntime */ = {
 			isa = PBXGroup;
 			children = (
+				9E62595C20B1113000C76C18 /* runtime_category */,
 				6BE09DE32060B0750051D07F /* AppDelegate.h */,
 				6BE09DE42060B0750051D07F /* AppDelegate.m */,
 				6BE09DE62060B0750051D07F /* ViewController.h */,
@@ -94,6 +104,19 @@
 				6BE09DF22060B0750051D07F /* main.m */,
 			);
 			path = DMRuntime;
+			sourceTree = "<group>";
+		};
+		9E62595C20B1113000C76C18 /* runtime_category */ = {
+			isa = PBXGroup;
+			children = (
+				9E62595D20B12D3C00C76C18 /* MyClass.h */,
+				9E62595E20B12D3C00C76C18 /* MyClass.m */,
+				9E62596020B12D5700C76C18 /* MyClass+Test1.h */,
+				9E62596120B12D5700C76C18 /* MyClass+Test1.m */,
+				9E62596320B12D5E00C76C18 /* MyClass+Test2.h */,
+				9E62596420B12D5E00C76C18 /* MyClass+Test2.m */,
+			);
+			path = runtime_category;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -167,6 +190,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9E62596220B12D5700C76C18 /* MyClass+Test1.m in Sources */,
+				9E62596520B12D5E00C76C18 /* MyClass+Test2.m in Sources */,
+				9E62595F20B12D3C00C76C18 /* MyClass.m in Sources */,
 				6BE09DE82060B0750051D07F /* ViewController.m in Sources */,
 				6B9DA81520720E590056F329 /* ViewController+DMAssociation.m in Sources */,
 				6BE09DF32060B0750051D07F /* main.m in Sources */,

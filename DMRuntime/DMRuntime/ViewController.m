@@ -12,6 +12,13 @@
 #import <objc/runtime.h>
 #import "ViewController+DMAssociation.h"
 
+
+//===================
+#import "MyClass.h"
+#import "MyClass+Test1.h"
+#import "MyClass+Test2.h"
+//===================
+
 __weak NSString *string_weak_assign = nil;
 __weak NSString *string_weak_retain = nil;
 __weak NSString *string_weak_copy   = nil;
@@ -35,6 +42,26 @@ __weak Person *p_weak_copy   = nil;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    NSDictionary *dic = self.list[self.indexPath.section];
+    NSString *title = dic[@"data"][self.indexPath.row];
+    self.title = title;
+    
+}
+
+- (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event
+{
+    [self testCategoryLoadOrder];
+}
+
+- (void)testCategoryLoadOrder
+{
+    [[MyClass new] methodA];
+    [[MyClass new] privateMethod];
+    NSLog(@"class property:%@",MyClass.classProperty);
+}
+
+- (void)testRuntimeMethod
+{
     self.ps = [Person new];
     self.ps.name = @"Leoliu";
     self.ps.age = @(30);
@@ -43,9 +70,6 @@ __weak Person *p_weak_copy   = nil;
     self.father = [Father new];
     self.father.sons = @[@"son1",@"son2"];
     
-    NSDictionary *dic = self.list[self.indexPath.section];
-    NSString *title = dic[@"data"][self.indexPath.row];
-    self.title = title;
     if (self.indexPath.section == 0) {
         switch (self.indexPath.row) {
             case 0:
@@ -80,7 +104,10 @@ __weak Person *p_weak_copy   = nil;
             [self dynamicInstance];
         }
     }
-    
+}
+
+- (void)testVC
+{
     self.associatedObject_assign = [NSString stringWithFormat:@"leoliu1"];
     self.associatedObject_retain = [NSString stringWithFormat:@"leoliu2"];
     self.associatedObject_copy   = [NSString stringWithFormat:@"leoliu3"];
@@ -101,11 +128,11 @@ __weak Person *p_weak_copy   = nil;
     p_weak_copy   = self.associatedPerson_copy;
     
     [self selectorname];
-    
 }
 
-- (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event
+- (void)runTestVC
 {
+    
     NSLog(@"self.associatedObject_assign: %@", self.associatedObject_assign); //
     NSLog(@"self.associatedObject_retain: %@", self.associatedObject_retain);
     NSLog(@"self.associatedObject_copy:   %@", self.associatedObject_copy);
@@ -122,7 +149,6 @@ __weak Person *p_weak_copy   = nil;
      self.associatedPerson_copy:   <Person: 0x60000044e340>
      */
 }
-
 - (void)dealloc
 {
     NSLog(@"%s",__func__);
